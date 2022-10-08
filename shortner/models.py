@@ -16,6 +16,10 @@ class ShortURL(models.Model):
     
     def is_older_than_4_years(self):
         return (datetime.date().today() - self.created_on) > datetime.timedelta(year=4)
+
+    def get_absolute_url(self):
+        # TODO: when shortURL class is complete add http/https field
+        return "http://" + self.original_url
     
 
     
